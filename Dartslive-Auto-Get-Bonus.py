@@ -4,6 +4,7 @@ import random
 import datetime
 from bs4 import BeautifulSoup
 import json
+import os
 
 class Dartslive(object):
 
@@ -90,7 +91,8 @@ class Dartslive(object):
 def main():
     email = []
     password = []
-    with open('user.json') as json_file:
+    dir_path = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(dir_path, 'user.json')) as json_file:
         data = json.load(json_file)
         for ptt in data:
             email.append(ptt['email'])
